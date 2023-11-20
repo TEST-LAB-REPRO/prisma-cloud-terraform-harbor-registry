@@ -1,0 +1,15 @@
+---
+
+- name: Copy script 
+  copy:
+      src: "{{ script_name }}"
+      dest: "/tmp/{{ script_name }}"
+      mode: 0755   # Ensure the script is executable
+
+- name: Run script on remote server
+  command: "/tmp/{{ script_name }}"
+
+- name: Delete the script
+  file:
+        path: "/tmp/{{ script_name }}"
+        state: absent
