@@ -1,7 +1,7 @@
 on: [ push, workflow_dispatch ]
 
 jobs:
-  deploy harbor:
+  deploy-harbor:
     name: Deploy Harbor
     runs-on: ubuntu-latest
 
