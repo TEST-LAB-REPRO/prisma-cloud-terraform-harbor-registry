@@ -1,7 +1,7 @@
 # main.tf
 
  provider "google" {
-   credentials = file("./credentials.json")
+   credentials = file("./secrets/credentials.json")
    project     = var.project_id
    region      = var.region
  }
