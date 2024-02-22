@@ -34,20 +34,8 @@ resource "google_compute_instance" "harbor" {
   }
   tags = ["http-server", "https-server", "emea-tac-lab"]
 
-  provisioner "remote-exec" {
-  inline = ["echo 'Wait until SSH is ready'"]
-
-  connection {
-    type        = "ssh"
-    user        = var.ssh-user
-    host        =  google_compute_instance.harbor.network_interface.0.access_config.0.nat_ip
-    private_key =  file("./id_rsa")
-  }
-  }
-  provisioner "local-exec" {
-    command = "ansible-playbook  -i ${google_compute_instance.harbor.network_interface.0.access_config.0.nat_ip},  --private-key ${var.private_key_path} harbor_deploy.yaml"
-  }
-
+  metadata_startup_script = file("${path.module}/harbor_install_gcp.sh")
+  
 }
 
 output "habor_instance" {
