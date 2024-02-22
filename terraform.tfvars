@@ -8,5 +8,5 @@ image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20231101"
 subnet = "xxxxxxxxxxxxxxx"
 ssh-user = "xxxxxxxxxxx"
 ssh-key = "xxxxxxxxxxxxxxxxx"
-private_key_path =  "./id_rsa"
+
 
