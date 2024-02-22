@@ -18,7 +18,7 @@ jobs:
 
       - name: Check terraform plan
         run: |
-          gpg --quiet --batch --yes --decrypt --passphrase=$GOOGLE_API_PW --output $HOME/secrets/credentials.json credentials.json.gpg
+          gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GOOGLE_API_PW }} --output $HOME/secrets/credentials.json credentials.json.gpg
           terraform init
           terraform plan
           terraform apply -auto-approve
