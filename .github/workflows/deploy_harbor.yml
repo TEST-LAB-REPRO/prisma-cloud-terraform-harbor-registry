@@ -17,6 +17,6 @@ jobs:
       - name: Terraform Init and Apply
         run: |
           terraform init
-          terraform apply -auto-approve -var="instance_name=${{ secrets.INSTANCE }}" -var="ssh-key=${{ secrets.SSHKEY }}" -var="ssh-user=${{ secrets.SSHUSER }}" -var="credentials=${{ secrets.GCP_SA_KEY }}"
+          terraform apply -auto-approve -var="instance_name=${{ secrets.INSTANCE }}" -var="ssh-key=${{ secrets.SSHKEY }}" -var="ssh-user=${{ secrets.SSHUSER }}" -var="gcp_service_account_key=${{ secrets.GCP_SA_KEY }}"
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
