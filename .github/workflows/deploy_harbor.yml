@@ -16,6 +16,7 @@ jobs:
 
       - name: Terraform Init and Apply
         run: |
+          export TF_LOG=trace
           terraform init
           terraform apply -auto-approve -var="instance_name=${{ env.INSTANCE }}" -var="ssh-key=${{ secrets.SSHKEY }}" -var="ssh-user=${{ secrets.SSHUSER }}" -var="gcp_service_account_key=${{ secrets.GCP_SA_KEY }}"
         env:
