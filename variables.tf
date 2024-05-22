@@ -12,6 +12,11 @@ variable "ssh-key" {
   description = "Add your key in RSA Format"
 }
 
+variable "subnet" {
+  description = "Default subnet"
+  default = "default"
+}
+
 variable "disk_size" {
   description = "Default disk size 40G"
   default = "40"
