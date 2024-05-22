@@ -1,6 +1,6 @@
 # terraform.tfvars
 
-instance_name    = "xxxxxxxx"
+instance_name    = "habor-test"
 ssh-user = "xxxxxxxxxxx"
 ssh-key = "xxxxxxxxxxxxxxxxx"
 
