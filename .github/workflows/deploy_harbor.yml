@@ -1,0 +1,22 @@
+name: Prisma Cloud Installation on GKE
+
+on: [push] # or any other event that triggers this workflow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:       
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.5.7'
+
+      - name: Terraform Init and Apply
+        run: |
+          terraform init
+          terraform apply -auto-approve -var="instance_name=${{ secrets.INSTANCE }}" -var="ssh-key=${{ secrets.SSHKEY }}" -var="ssh-user=${{ secrets.SSHUSER }}" -var="credentials=${{ secrets.GCP_SA_KEY }}"
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
