@@ -1,5 +1,8 @@
 # vars.tf
 
+variable "gcp_service_account_key" {
+  description = " SA credentials" 
+}
 variable "instance_name" {
   description = "The name of the GCP instance"
 }
