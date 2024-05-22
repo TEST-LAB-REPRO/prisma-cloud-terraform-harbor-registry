@@ -1,5 +1,14 @@
 # main.tf
 
+terraform {
+  required_providers {
+    google = {
+      source = "hashicorp/google"
+      version = "5.8.0"
+    }
+  }
+}
+
  provider "google" {
    credentials =  jsondecode(base64decode(var.gcp_service_account_key))
    project     = "emea-tac-cloud-and-compute"
