@@ -1,4 +1,4 @@
-name: Prisma Cloud Installation on GKE
+name: Deploy Harbor registry
 
 on: [push] # or any other event that triggers this workflow
 
