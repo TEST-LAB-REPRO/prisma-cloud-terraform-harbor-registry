@@ -10,7 +10,7 @@ terraform {
 }
 
  provider "google" {
-   credentials =  base64decode(var.gcp_service_account_key))
+   credentials =  base64decode(var.gcp_service_account_key)
    project     = "emea-tac-cloud-and-compute"
    region      = "us-central1"
  }
