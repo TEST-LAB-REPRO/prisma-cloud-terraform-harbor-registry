@@ -1,17 +1,5 @@
 # vars.tf
 
-variable "project_id" {
-  description = "The GCP project ID"
-}
-
-variable "region" {
-  description = "The GCP region for the instance"
-}
-
-variable "zone" {
-  description = "The GCP zone for the instance"
-}
-
 variable "instance_name" {
   description = "The name of the GCP instance"
 }
@@ -22,10 +10,6 @@ variable "private_key_path" {
 
 variable "ssh-key" {
   description = "Add your key in RSA Format"
-}
-
-variable "image" {
-  description = "GCP Image by defualt"
 }
 
 variable "subnet" {
