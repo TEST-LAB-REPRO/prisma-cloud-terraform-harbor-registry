@@ -1,7 +1,7 @@
 # main.tf
 
  provider "google" {
-   credentials = file("./secrets/credentials.json")
+   credentials =  jsondecode(base64decode(var.gcp_service_account_key))
    project     = "emea-tac-cloud-and-compute"var.project_id
    region      = "us-central1"
  }
