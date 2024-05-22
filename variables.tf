@@ -7,10 +7,6 @@ variable "instance_name" {
   description = "The name of the GCP instance"
 }
 
-variable "private_key_path" {
-  description = "Path for SSH private key"
-}
-
 variable "ssh-key" {
   description = "Add your key in RSA Format"
 }
