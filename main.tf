@@ -2,7 +2,7 @@
 
  provider "google" {
    credentials =  jsondecode(base64decode(var.gcp_service_account_key))
-   project     = "emea-tac-cloud-and-compute"var.project_id
+   project     = "emea-tac-cloud-and-compute"
    region      = "us-central1"
  }
 
