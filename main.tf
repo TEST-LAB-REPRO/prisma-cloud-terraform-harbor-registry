@@ -2,21 +2,21 @@
 
  provider "google" {
    credentials = file("./secrets/credentials.json")
-   project     = var.project_id
-   region      = var.region
+   project     = "emea-tac-cloud-and-compute"var.project_id
+   region      = "us-central1"
  }
 
 resource "google_compute_instance" "harbor" {
   name         = var.instance_name
   machine_type = var.machine_type
-  zone         = var.zone
+  zone         = "us-central1-a"
 
   boot_disk {
     auto_delete = true
     device_name = var.instance_name
 
     initialize_params {
-      image = var.image
+      image = "projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20231101"
       size  = var.disk_size
       type  = "pd-balanced"
     }
