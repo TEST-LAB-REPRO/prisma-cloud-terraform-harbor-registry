@@ -1,6 +1,7 @@
 name: Deploy Harbor registry
 
-on: [push] # or any other event that triggers this workflow
+on: 
+ workflow_dispatch: # or any other event that triggers this workflow
 
 jobs:
   deploy:
