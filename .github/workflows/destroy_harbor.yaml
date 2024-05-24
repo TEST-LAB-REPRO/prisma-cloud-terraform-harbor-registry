@@ -19,7 +19,7 @@ jobs:
         run: terraform init  
         
       - name: Show Destroy plan
-        run: terraform plan -destroy
+        run: terraform plan -destroy -var="gcp_service_account_key=${{ secrets.GCP_SA_KEY }}"
         continue-on-error: true
 
       - name: Terraform destroy
