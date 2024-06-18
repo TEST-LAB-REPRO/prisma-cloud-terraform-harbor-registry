@@ -3,17 +3,17 @@
 terraform {
   required_providers {
     google = {
-      source = "hashicorp/google"
+      source  = "hashicorp/google"
       version = "5.8.0"
     }
   }
 }
 
- provider "google" {
-   credentials =  base64decode(var.gcp_service_account_key)
-   project     = "emea-tac-cloud-and-compute"
-   region      = "us-central1"
- }
+provider "google" {
+  credentials = base64decode(var.gcp_service_account_key)
+  project     = "emea-tac-cloud-and-compute"
+  region      = "us-central1"
+}
 
 resource "google_compute_instance" "harbor" {
   name         = var.instance_name
@@ -32,11 +32,11 @@ resource "google_compute_instance" "harbor" {
 
     mode = "READ_WRITE"
   }
-    network_interface {
-      subnetwork = var.subnet
-      access_config {
-        network_tier = "PREMIUM"
-      }
+  network_interface {
+    subnetwork = var.subnet
+    access_config {
+      network_tier = "PREMIUM"
+    }
   }
   metadata = {
     ssh-keys = "${var.ssh-user}:${var.ssh-key}"
@@ -44,7 +44,10 @@ resource "google_compute_instance" "harbor" {
   tags = ["http-server", "https-server", "emea-tac-lab"]
 
   metadata_startup_script = file("${path.module}/harbor_install_gcp.sh")
-  
+
+  labels = {
+    yor_trace = "c3215231-b4e9-42d4-a66c-5404004f859c"
+  }
 }
 
 output "habor_instance" {
